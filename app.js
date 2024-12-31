@@ -1,3 +1,63 @@
+// ================  Fetch API
+
+let URL = "https://cat-fact.herokuapp.com/facts";
+const facts = document.querySelector(".facts");
+const btn = document.querySelector(".btn");
+
+const getFacts = async () =>{
+    console.log("fetching data........");
+    let response = await fetch(URL);
+        console.log(response); // JSON FORMAT
+    let data = await response.json(); // IT RETURNS IN JAVASCRIPT OBJECT FORMAT
+    facts.innerText = data[2].text;
+    
+}
+
+//API with promise chaining 
+// function getFacts () {
+//     fetch(URL).then((response)=>{
+//         return response.json();
+//     }).then((data)=>{
+//         console.log(data);
+//         facts.innerText = data[4].text;
+//     })
+// }
+
+btn.addEventListener("click",()=>{
+   getFacts();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ================  Callbacks, Promises & Async Await
 
 //=========setTimeOut falls under Asynchronous Programming
@@ -205,26 +265,26 @@
 
 //========= Async - Await
 
-const getData = (dataId) =>{
-    return new Promise((resolve, result)=>{
-        setTimeout(()=>{
-            console.log(`data = ${dataId}`);
-            resolve("success");
-        },3000)
-    })
-}
+// const getData = (dataId) =>{
+//     return new Promise((resolve, result)=>{
+//         setTimeout(()=>{
+//             console.log(`data = ${dataId}`);
+//             resolve("success");
+//         },3000)
+//     })
+// }
 
 
 
-(async function getAllData() {
-    await getData(1);
-    await getData(2);
-    await getData(3);
-    await getData(4);
-    console.log("Succes");
+// (async function getAllData() {
+//     await getData(1);
+//     await getData(2);
+//     await getData(3);
+//     await getData(4);
+//     console.log("Succes");
     
 
-})()  //Here we have used IIFE
+// })()  //Here we have used IIFE
     //Immediately Invoked Function Expression
 
 
